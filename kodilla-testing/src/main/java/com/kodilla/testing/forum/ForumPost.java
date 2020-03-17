@@ -1,7 +1,6 @@
 package com.kodilla.testing.forum;
 
 public class ForumPost {
-
     private String postBody;
     private String author;
 
