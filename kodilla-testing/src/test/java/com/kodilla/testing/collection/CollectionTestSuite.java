@@ -1,9 +1,11 @@
 package com.kodilla.testing.collection;
+
 import org.junit.*;
 
 import java.util.ArrayList;
 
 public class CollectionTestSuite {
+
     @Before
     public void before() {
         System.out.println("Test Case: begin");
@@ -29,7 +31,7 @@ public class CollectionTestSuite {
         //given
         ArrayList<Integer> arrayList = new ArrayList<>();
         //when
-        ArrayList<Integer> check = OddNumberExterminator.exterminate(arrayList);
+        ArrayList<Integer> check = OddNumbersExterminator.exterminate(arrayList);
         System.out.println("Testing empty list");
         //then
         Assert.assertEquals(0, check.size());
