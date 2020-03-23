@@ -1,4 +1,4 @@
-package com.kodilla.testing.forum.tdd;
+package com.kodilla.testing.collection.tdd;
 
 import com.kodilla.testing.forum.ForumComment;
 import com.kodilla.testing.forum.ForumPost;
@@ -6,7 +6,6 @@ import com.kodilla.testing.forum.ForumUser;
 import org.junit.*;
 
 public class ForumTestSuite {
-
     private static int testCounter = 0;
 
     @BeforeClass
@@ -150,4 +149,5 @@ public class ForumTestSuite {
         Assert.assertTrue(result);
         Assert.assertEquals(0, forumUser.getCommentsQuantity());
     }
+
 }

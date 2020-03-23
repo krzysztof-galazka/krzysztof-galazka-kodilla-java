@@ -1,6 +1,6 @@
 package com.kodilla.testing.forum.statistics;
 
-public class ForumStatistics{
+public class ForumStatistics {
 
     private int usersQuantity;
     private int postsQuantity;
@@ -14,22 +14,21 @@ public class ForumStatistics{
         postsQuantity = statistics.postsCount();
         commentsQuantity = statistics.commentsCount();
         if (usersQuantity > 0) {
-            averagePostPerUser = (double) postsQuantity / usersQuantity;
+            averagePostPerUser = postsQuantity / (double) usersQuantity;
         } else {
-            averagePostPerUser = -1;
+            averagePostPerUser = 0;
         }
         if (usersQuantity > 0) {
-            averageCommentsPerUser = (double) commentsQuantity / usersQuantity;
+            averageCommentsPerUser = commentsQuantity / (double) usersQuantity;
         } else {
-            averageCommentsPerUser = -1;
+            averageCommentsPerUser = 0;
         }
         if (postsQuantity > 0) {
-            averageCommentsPerPost = (double) commentsQuantity / postsQuantity;
+            averageCommentsPerPost = commentsQuantity / (double) postsQuantity;
         } else {
-            averageCommentsPerPost = -1;
+            averageCommentsPerPost = 0;
         }
     }
-
 
     public int getUsersQuantity() {
         return usersQuantity;

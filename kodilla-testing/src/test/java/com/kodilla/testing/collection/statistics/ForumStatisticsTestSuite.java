@@ -1,5 +1,7 @@
-package com.kodilla.testing.forum.statistics;
-import org.junit.Assert;
+package com.kodilla.testing.collection.statistics;
+
+import com.kodilla.testing.forum.statistics.ForumStatistics;
+import com.kodilla.testing.forum.statistics.Statistics;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,12 +17,11 @@ public class ForumStatisticsTestSuite {
     private Statistics statisticsMock;
     private ForumStatistics forumStatistics;
 
-
     @Before
-    public void beforeTest(){
+    public void beforeTest() {
         statisticsMock = mock(Statistics.class);
-        List<String>listMock = new ArrayList<>();
-        for(int i=0; i<10; i++){
+        List<String> listMock = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
             listMock.add("User");
         }
         when(statisticsMock.usersNames()).thenReturn(listMock);
@@ -31,21 +32,21 @@ public class ForumStatisticsTestSuite {
 
     // gdy liczba postów = 0
     @Test
-    public void testCalculateAdvStatisticsWithZeroPosts(){
+    public void testCalculateAdvStatisticsWithZeroPosts() {
         //Given
         when(statisticsMock.postsCount()).thenReturn(0);
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         //Then
-        Assert.assertEquals(0, forumStatistics.getPostsQuantity(), 0.01);
-        Assert.assertEquals(0, forumStatistics.getAveragePostPerUser(), 0.01);
-        Assert.assertEquals(0, forumStatistics.getAverageCommentsPerPost(), 0.01);
+        assertEquals(0, forumStatistics.getPostsQuantity(), 0.01);
+        assertEquals(0, forumStatistics.getAveragePostPerUser(), 0.01);
+        assertEquals(0, forumStatistics.getAverageCommentsPerPost(), 0.01);
 
     }
 
     //gdy liczba postów = 1000
     @Test
-    public void testCalculateAdvStatisticsWithThousandPosts(){
+    public void testCalculateAdvStatisticsWithThousandPosts() {
         //Given
         when(statisticsMock.postsCount()).thenReturn(1000);
         //When
@@ -58,7 +59,7 @@ public class ForumStatisticsTestSuite {
 
     //gdy liczba komentarzy = 0
     @Test
-    public void testCalculateAdvStatisticsWithZeroComments(){
+    public void testCalculateAdvStatisticsWithZeroComments() {
         //Given
         when(statisticsMock.commentsCount()).thenReturn(0);
         //When
@@ -71,7 +72,7 @@ public class ForumStatisticsTestSuite {
 
     //gdy liczba komentarzy < liczba postów
     @Test
-    public void testCalculateAdvStatisticsLessCommentsThanPosts(){
+    public void testCalculateAdvStatisticsLessCommentsThanPosts() {
         //Given
         when(statisticsMock.commentsCount()).thenReturn(2);
         when(statisticsMock.postsCount()).thenReturn(10);
@@ -87,7 +88,7 @@ public class ForumStatisticsTestSuite {
 
     //gdy liczba komentarzy > liczba postów
     @Test
-    public void testCalculateAdvStatisticsMoreCommentsThanPosts(){
+    public void testCalculateAdvStatisticsMoreCommentsThanPosts() {
         //Given
 
         //When
@@ -102,9 +103,9 @@ public class ForumStatisticsTestSuite {
 
     //gdy liczba użytkowników = 0
     @Test
-    public void testCalculateAdvStatisticsWithZeroUsers(){
+    public void testCalculateAdvStatisticsWithZeroUsers() {
         //Given
-        List<String>listMock = new ArrayList<>();
+        List<String> listMock = new ArrayList<>();
         when(statisticsMock.usersNames()).thenReturn(listMock);
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
@@ -117,10 +118,10 @@ public class ForumStatisticsTestSuite {
 
     //gdy liczba użytkowników = 100
     @Test
-    public void testCalculateAdvStatisticsWithHundredUsers(){
+    public void testCalculateAdvStatisticsWithHundredUsers() {
         //Given
         List<String> listMock = new ArrayList<>();
-        for(int i=0; i<100; i++){
+        for (int i = 0; i < 100; i++) {
             listMock.add("User");
         }
         when(statisticsMock.usersNames()).thenReturn(listMock);
@@ -131,5 +132,4 @@ public class ForumStatisticsTestSuite {
         assertEquals(0.2, forumStatistics.getAveragePostPerUser(), 0.01);
         assertEquals(0.4, forumStatistics.getAverageCommentsPerUser(), 0.01);
     }
-
 }
