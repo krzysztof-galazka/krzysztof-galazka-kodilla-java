@@ -151,7 +151,7 @@ public class BoardTestSuite {
         Double tasksWithAvg = project.getTaskLists().stream()
                 .filter(progressTasks::contains)
                 .flatMap(taskList -> taskList.getTasks().stream())
-                .map(task -> task.getCreated().until(LocalDate.now()).getDays())
+                .map(task -> ChronoUnit.DAYS.between(task.getCreated().LocalDate.now()))
                 .mapToInt(task -> task)
                 .average()
                 .getAsDouble();
