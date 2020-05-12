@@ -1,4 +1,4 @@
-package challenges.food2door;
+package food2door;
 
 public class GlutenFreeShop implements Producer {
     @Override
