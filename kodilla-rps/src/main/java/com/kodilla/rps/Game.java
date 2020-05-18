@@ -7,6 +7,7 @@ public class Game {
     public void playGame() {
         userName = UserDialogs.getUserName();
         rounds = UserDialogs.getRounds();
+        System.out.printf("INFO:\nEnter 1 - rock, 2 - paper, 3 - scissors");
 
         int round = 1;
         while (round <= rounds){

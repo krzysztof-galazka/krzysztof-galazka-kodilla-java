@@ -1,4 +1,4 @@
-package Food2Doors;
+package food2doors;
 
 public class Order {
 
