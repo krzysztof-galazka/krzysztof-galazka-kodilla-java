@@ -1,7 +1,5 @@
 package food;
 
-import java.time.LocalDateTime;
-
 public class OrderRequestRetriever {
 
     public OrderRequest retrieve() {

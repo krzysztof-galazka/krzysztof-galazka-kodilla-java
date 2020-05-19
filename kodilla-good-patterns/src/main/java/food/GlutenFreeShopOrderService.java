@@ -1,8 +1,6 @@
 package food;
 
-import java.time.LocalDate;
-
-public class GlutenFreeShopOrderService implements SupplierOrderService{
+public class GlutenFreeShopOrderService implements SupplierOrderService {
 
     @Override
     public boolean process(OrderRequest orderRequest) {

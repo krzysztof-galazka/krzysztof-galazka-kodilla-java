@@ -1,8 +1,6 @@
 package food;
 
-import java.time.LocalDate;
-
-public class HealthyShopOrderService implements SupplierOrderService{
+public class HealthyShopOrderService implements SupplierOrderService {
 
     @Override
     public boolean process(OrderRequest orderRequest) {

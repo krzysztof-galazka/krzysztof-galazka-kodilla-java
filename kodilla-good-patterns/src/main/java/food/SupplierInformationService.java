@@ -1,6 +1,5 @@
 package food;
 
-import java.time.LocalDateTime;
 
 public class SupplierInformationService implements InformationService {
     @Override
