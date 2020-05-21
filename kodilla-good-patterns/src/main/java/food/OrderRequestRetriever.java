@@ -3,8 +3,7 @@ package food;
 public class OrderRequestRetriever {
 
     public OrderRequest retrieve() {
-        Supplier supplier = new Supplier("ExtraFoodShop", new GlutenFreeShopOrderService());
         Product product = new Product("Watter", 5);
-        return new OrderRequest(supplier, product);
+        return new OrderRequest(SupplierFactory.EXTRA_FOOD_SHOP, product);
     }
 }

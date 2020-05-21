@@ -5,11 +5,14 @@ public class Application {
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         OrderRequest orderRequest = orderRequestRetriever.retrieve();
 
-        OrderProcessor orderProcessor = new OrderProcessor(new SupplierInformationService(),
-                orderRequest.getSupplier().getSupplierOrderService(),
-                new SupplierOrderRepository());
+        OrderProcessor orderProcessor = new OrderProcessor();
 
-        Order order = orderProcessor.order(orderRequest);
-        System.out.println(order);
+        boolean result = false;
+        try {
+            result = orderProcessor.order(orderRequest);
+        } catch (Exception e) {
+            System.out.println("Supplier not supported");
+        }
+        System.out.println(result);
     }
 }

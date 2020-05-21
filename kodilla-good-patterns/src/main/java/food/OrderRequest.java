@@ -1,15 +1,15 @@
 package food;
 
 public class OrderRequest {
-    private final Supplier supplier;
+    private final String supplier;
     private final Product product;
 
-    public OrderRequest(final Supplier supplier, final Product product) {
+    public OrderRequest(String supplier, Product product) {
         this.supplier = supplier;
         this.product = product;
     }
 
-    public Supplier getSupplier() {
+    public String getSupplier() {
         return supplier;
     }
 
@@ -17,11 +17,10 @@ public class OrderRequest {
         return product;
     }
 
-
     @Override
     public String toString() {
-        return "OrderRequest {" +
-                "user=" + supplier +
+        return "OrderRequest{" +
+                "supplier='" + supplier + '\'' +
                 ", product=" + product +
                 '}';
     }
