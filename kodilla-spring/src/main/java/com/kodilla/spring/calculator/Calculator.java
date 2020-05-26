@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Calculator {
+public final class Calculator {
 
     @Autowired
-    private Display display;
+    public Display display;
 
     public double add(double a, double b) {
         display.displayValue(a + b);
@@ -27,6 +27,5 @@ public class Calculator {
     public double div(double a, double b) {
         display.displayValue(a / b);
         return a / b;
-
     }
 }

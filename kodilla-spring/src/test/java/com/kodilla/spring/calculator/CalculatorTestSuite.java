@@ -75,5 +75,4 @@ public class CalculatorTestSuite {
         //then
         Assert.assertEquals(5, result, 0);
     }
-
 }
