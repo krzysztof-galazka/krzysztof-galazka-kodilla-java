@@ -16,18 +16,24 @@ public class BoardTestSuite {
     public void testTaskAdd(){
 
         //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.portfolio");
-        Board board = context.getBean(Board.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
 
         //When
-        board.getToDoList().getTasks().add("First task is in TO DO LIST");
-        board.getInProgressList().getTasks().add("Second task is in IN PROGRESS LIST");
-        board.getDoneList().getTasks().add("Third task is in DONE LIST");
+        TaskList toDoList = (TaskList)context.getBean("toDoList");
+        toDoList.addTask("First task is inTo Do List");
+        TaskList inProgressList = (TaskList)context.getBean("inProgressList");
+        inProgressList.addTask("First task is in in Progress List");
+        TaskList doneList = (TaskList)context.getBean("doneList");
+        doneList.addTask("First task is in Done List");
+
+        String retrievedTaskInToDoList = toDoList.getTask(0);
+        String retrievedTaskInInProgressList = inProgressList.getTask(0);
+        String retrievedTaskInDoneList = doneList.getTask(0);
 
         //Then
-        Assert.assertEquals("First task is in TO DO LIST", board.getToDoList().getTasks().get(0));
-        Assert.assertEquals("Second task is in IN PROGRESS LIST", board.getInProgressList().getTasks().get(0));
-        Assert.assertEquals("Third task is in DONE LIST", board.getDoneList().getTasks().get(0));
+        Assert.assertEquals("First task is inTo Do List", retrievedTaskInToDoList);
+        Assert.assertEquals("First task is in in Progress List", retrievedTaskInInProgressList);
+        Assert.assertEquals("First task is in Done List", retrievedTaskInDoneList);
 
     }
 }
