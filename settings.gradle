@@ -1,3 +1,12 @@
-rootProject.name = 'demo'
+rootProject.name = 'kodilla-course'
 include 'kodilla-paterns'
+include 'kodilla-exception'
+include 'kodilla-good-patterns'
+include 'kodilla-project'
+include 'kodilla-rps'
+include 'kodilla-spring'
+include 'kodilla-spring-intro'
+include 'kodilla-stream'
+include 'kodilla-testing'
+include 'kodilla-spring-web2'
 
