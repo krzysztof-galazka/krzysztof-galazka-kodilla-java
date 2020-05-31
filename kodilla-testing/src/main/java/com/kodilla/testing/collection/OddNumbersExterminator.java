@@ -3,12 +3,12 @@ package com.kodilla.testing.collection;
 import java.util.ArrayList;
 
 public class OddNumbersExterminator {
-    public static ArrayList<Integer> exterminate (ArrayList<Integer> numbers){
+    public static ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
 
-        ArrayList <Integer> evenNumbers = new ArrayList<>();
+        ArrayList<Integer> evenNumbers = new ArrayList<>();
 
-        for (Integer number:numbers){
-            if (number % 2 == 0){
+        for (Integer number : numbers) {
+            if (number % 2 == 0) {
                 evenNumbers.add(number);
             }
         }

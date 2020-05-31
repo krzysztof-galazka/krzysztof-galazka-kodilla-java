@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UserDialogs {
     public static String getUserName() {
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("Your name:");
             String s = scanner.nextLine().trim();
             if (s.length() > 2)
@@ -16,7 +16,7 @@ public class UserDialogs {
 
     public static int getRounds() {
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("Number of rounds:");
             String s = scanner.nextLine().trim();
             try {
@@ -24,7 +24,7 @@ public class UserDialogs {
                 if (n <= 0 || n > 9)
                     throw new Exception();
                 return n;
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Invalid number. Try again!");
             }
         }

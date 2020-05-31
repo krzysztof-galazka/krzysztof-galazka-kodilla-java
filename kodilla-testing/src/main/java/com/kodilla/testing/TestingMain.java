@@ -18,17 +18,17 @@ public class TestingMain {
 
         //calculator test
         Calculator calculator = new Calculator();
-        int addingTest = calculator.add(4,2);
+        int addingTest = calculator.add(4, 2);
 
-        if (addingTest == 6){
+        if (addingTest == 6) {
             System.out.println("Adding test OK");
         } else {
             System.out.println("Error in adding");
         }
 
-        int substractTest = calculator.substract(9,4);
+        int substractTest = calculator.substract(9, 4);
 
-        if (substractTest == 2){
+        if (substractTest == 2) {
             System.out.println("Substract test OK");
         } else {
             System.out.println("Error in substract");

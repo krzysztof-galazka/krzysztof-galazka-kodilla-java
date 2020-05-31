@@ -1,6 +1,6 @@
 package orders;
 
-public class ProductOrderService implements OrderService{
+public class ProductOrderService implements OrderService {
 
     @Override
     public boolean order(OrderRequest orderRequest) {

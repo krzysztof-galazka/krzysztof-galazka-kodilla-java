@@ -7,7 +7,7 @@ public class FlightsList {
 
     private Set<Flight> flights = new HashSet<>();
 
-    public FlightsList(){
+    public FlightsList() {
         flights.add(new Flight("WARSZAWA", "WROCŁAW"));
         flights.add(new Flight("WARSZAWA", "KATOWICE"));
         flights.add(new Flight("WARSZAWA", "GDAŃSK"));
@@ -22,7 +22,7 @@ public class FlightsList {
         return flights;
     }
 
-    public void addFlight(Flight flight){
+    public void addFlight(Flight flight) {
         flights.add(flight);
     }
 }

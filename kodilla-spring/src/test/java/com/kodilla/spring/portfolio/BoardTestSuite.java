@@ -13,17 +13,17 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class BoardTestSuite {
 
     @Test
-    public void testTaskAdd(){
+    public void testTaskAdd() {
 
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
 
         //When
-        TaskList toDoList = (TaskList)context.getBean("toDoList");
+        TaskList toDoList = (TaskList) context.getBean("toDoList");
         toDoList.addTask("First task is inTo Do List");
-        TaskList inProgressList = (TaskList)context.getBean("inProgressList");
+        TaskList inProgressList = (TaskList) context.getBean("inProgressList");
         inProgressList.addTask("First task is in in Progress List");
-        TaskList doneList = (TaskList)context.getBean("doneList");
+        TaskList doneList = (TaskList) context.getBean("doneList");
         doneList.addTask("First task is in Done List");
 
         String retrievedTaskInToDoList = toDoList.getTask(0);

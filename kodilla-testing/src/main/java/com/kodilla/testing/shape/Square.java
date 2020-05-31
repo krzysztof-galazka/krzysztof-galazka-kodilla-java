@@ -1,6 +1,6 @@
 package com.kodilla.testing.shape;
 
-public class Square implements Shape{
+public class Square implements Shape {
     double width;
 
     public Square(double width) {

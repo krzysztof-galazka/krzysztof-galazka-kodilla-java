@@ -3,7 +3,7 @@ package com.kodilla.testing.shape;
 public class Circle implements Shape {
     double radius;
 
-    public Circle(double radius){
+    public Circle(double radius) {
         radius = radius;
     }
 

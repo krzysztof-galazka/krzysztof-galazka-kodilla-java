@@ -19,8 +19,7 @@ public class OrderProcessor {
             informationService.sendConfirmation(orderRequest);
             orderRepository.add(orderRequest);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

@@ -12,7 +12,6 @@ public class Country {
     }
 
 
-
     public String getCountryName() {
         return countryName;
     }
