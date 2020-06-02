@@ -14,7 +14,7 @@ public final class Library {
         this.name = name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -29,21 +29,21 @@ public final class Library {
     @Override
     public String toString() {
         String s = "Library [" + name + "]\n";
-        for (Book book:books) {
+        for (Book book : books) {
             s = s + book.toString() + "\n";
         }
         return s;
     }
 
-    public Library shallowCopy() throws CloneNotSupportedException{
-        return (Library)super.clone();
+    public Library shallowCopy() throws CloneNotSupportedException {
+        return (Library) super.clone();
     }
 
-    public Library deepCopy() throws CloneNotSupportedException{
-        Library clonedLibrary = (Library)super.clone();
+    public Library deepCopy() throws CloneNotSupportedException {
+        Library clonedLibrary = (Library) super.clone();
         clonedLibrary.books = new HashSet<>();
-        for (Book book : books){
-            Book clonedBook = new Book(book.getTitle(), book.getTitle(), book.getPublicationDate());
+        for (Book book : books) {
+            Book clonedBook = new Book(book.getAuthor(), book.getTitle(), book.getPublicationDate());
             clonedLibrary.getBooks().add(clonedBook);
         }
         return clonedLibrary;
