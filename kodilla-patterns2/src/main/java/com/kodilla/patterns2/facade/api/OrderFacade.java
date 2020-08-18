@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-public final class OrderFacade {
+public class OrderFacade {
     @Autowired
     private ShopService shopService;
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
@@ -26,7 +26,7 @@ public final class OrderFacade {
         }
 
         try {
-            for (ItemDto orderItem : order.getItems()) {
+            for (ItemDto orderItem: order.getItems()) {
                 LOGGER.info("Adding items: " + orderItem.getProductId() + ", " + orderItem.getQuantity() + " pcs.");
                 shopService.addItem(orderId, orderItem.getProductId(), orderItem.getQuantity());
             }
