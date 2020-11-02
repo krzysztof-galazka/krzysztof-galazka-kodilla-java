@@ -13,64 +13,67 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class FacadeTestSuite {
 
-    @RunWith(SpringRunner.class)
-    @SpringBootTest
-    public class FacadeTestSuite {
+    @Autowired
+    private Facade facade;
+    @Autowired
+    private EmployeeDao employeeDao;
+    @Autowired
+    private CompanyDao companyDao;
 
-        @Autowired
-        private Facade facade;
-        @Autowired
-        private EmployeeDao employeeDao;
-        @Autowired
-        private CompanyDao companyDao;
+    @Test
+    public void testFindEmployeeByPartOfName() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
-        @Test
-        public void testFindEmployeeByPartOfName() {
-            //Given
-            Employee johnSmith = new Employee("John", "Smith");
-            Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-            Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+        //When
+        employeeDao.save(johnSmith);
+        int johnSmithId = johnSmith.getId();
+        employeeDao.save(stephanieClarckson);
+        int stephanieClarcksonId = stephanieClarckson.getId();
+        employeeDao.save(lindaKovalsky);
+        int lindaKovalskyId = lindaKovalsky.getId();
 
-            //When
-            employeeDao.save(johnSmith);
-            int johnSmithId = johnSmith.getId();
-            employeeDao.save(stephanieClarckson);
-            int stephanieClarcksonId = stephanieClarckson.getId();
-            employeeDao.save(lindaKovalsky);
-            int lindaKovalskyId = lindaKovalsky.getId();
+        List<Employee> employees = facade.processFindEmployeeByPartOfName("lind");
 
-            List<Employee> employees = facade.findEmployeeByPartOfName("lind");
+        //Then
+        Assert.assertEquals(1, employees.size());
 
-            //Then
-            Assert.assertEquals(1, employees.size());
-
-            //Cleanup
-            employeeDao.deleteById(johnSmithId);
-            employeeDao.deleteById(stephanieClarcksonId);
-            employeeDao.deleteById(lindaKovalskyId);
-        }
-
-        @Test
-        public void testFindCompanyByPartOfName() {
-            //Given
-            Company sidly = new Company("Sidly");
-            Company restaurant = new Company("Restaurant");
-            Company mechanic = new Company("mechanic");
-
-            //When
-            companyDao.save(sidly);
-            int sidlyId = sidly.getId();
-            companyDao.save(restaurant);
-            int restaurantId = restaurant.getId();
-            companyDao.save(mechanic);
-            int mechanicId = mechanic.getId();
-
-            List<Company> companies = facade.findCompanyByByPartOfName("si");
-
-            //Then
-            Assert.assertEquals(2, companies.size());
-
-        }
+        //Cleanup
+        employeeDao.deleteById(johnSmithId);
+        employeeDao.deleteById(stephanieClarcksonId);
+        employeeDao.deleteById(lindaKovalskyId);
     }
+
+    @Test
+    public void testFindCompanyByPartOfName() {
+        //Given
+        Company sidly = new Company("Sidly");
+        Company restaurant = new Company("Restaurant");
+        Company mechanic = new Company("mechanic");
+
+        //When
+        companyDao.save(sidly);
+        int sidlyId = sidly.getId();
+        companyDao.save(restaurant);
+        int restaurantId = restaurant.getId();
+        companyDao.save(mechanic);
+        int mechanicId = mechanic.getId();
+
+        List<Company> companies = facade.processFindCompanyByPartOfName("si");
+
+        //Then
+        Assert.assertEquals(2, companies.size());
+
+        //Cleanup
+        companyDao.deleteById(sidlyId);
+        companyDao.deleteById(restaurantId);
+        companyDao.deleteById(mechanicId);
+    }
+}
 

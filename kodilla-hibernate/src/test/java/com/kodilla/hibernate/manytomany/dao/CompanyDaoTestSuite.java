@@ -81,7 +81,7 @@ public class CompanyDaoTestSuite {
         int lindaKovalskyId = lindaKovalsky.getId();
 
         //When
-        List<Employee> searchEmployeeByLastName = employeeDao.retrieveEmployeeByLastName("Smith");
+        List<Employee> searchEmployeeByLastName = employeeDao.retrieveByLastname("Smith");
 
         //Then
         try {
@@ -109,7 +109,7 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //When
-        List<Company> searchCompanyByThreeFirstCharacters = companyDao.retrieveCompanyByThreeFirstChars("Sof");
+        List<Company> searchCompanyByThreeFirstCharacters = companyDao.retrieveByFirstTwoLettersOfCompanyName("Sof");
 
         //Then
         try {

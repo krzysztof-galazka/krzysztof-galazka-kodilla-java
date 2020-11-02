@@ -6,17 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retrieveCompanyByThreeFirstChars",
-        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME,1,3) = :COMPANY_NAME",
+        name = "Company.retrieveByFirstTwoLettersOfCompanyName",
+        query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME,2) = :FIRST_TWO_LETTERS",
         resultClass = Company.class
 )
-
-@NamedNativeQuery(
-        name = "Company.retrieveCompanyByPartOfName",
-        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT ('%',:NAME,'%')",
-        resultClass = Company.class
+@NamedQuery(
+        name = "Company.findCompanyByPartOfName",
+        query = "FROM Company WHERE name LIKE :NAME"
 )
-
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -24,12 +21,12 @@ public class Company {
     private String name;
     private List<Employee> employees = new ArrayList<>();
 
-    @ManyToMany (cascade = CascadeType.ALL, mappedBy = "companies")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List<Employee> employees) {
+    private void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 
@@ -48,14 +45,14 @@ public class Company {
         return id;
     }
 
+    private void setId(int id) {
+        this.id = id;
+    }
+
     @NotNull
     @Column(name = "COMPANY_NAME")
     public String getName() {
         return name;
-    }
-
-    private void setId(int id) {
-        this.id = id;
     }
 
     private void setName(String name) {
